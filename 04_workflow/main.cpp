@@ -88,7 +88,11 @@ int main() {
 
     case 'L':
     case 'l':
-      cout << "L - Display the largest number" << endl;
+      if (array.size() != 0) {
+        cout << "The largest number is: " << *minmax.second << endl;
+      } else {
+        cout << "[] - the list is empty" << endl;
+      }
       break;
     }
   }
