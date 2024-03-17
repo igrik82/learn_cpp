@@ -53,9 +53,24 @@ int main() {
     } break;
 
     case 'M':
-    case 'm':
-      cout << "M - Display mean of the numbers" << endl;
-      break;
+    case 'm': {
+      if (!array.size()) {
+        cout << "[] - the list is empty" << endl;
+        continue;
+      }
+      cout << "The mean is: " << fixed << setprecision(2);
+      int temp{0};
+      for (auto num : array) {
+        temp += num;
+      };
+
+      // Check if the division is an integer
+      if (temp % array.size() == 0) {
+        cout << temp / array.size() << endl;
+      } else {
+        cout << static_cast<double>(temp) / array.size() << endl;
+      }
+    } break;
 
     case 'S':
     case 's':
