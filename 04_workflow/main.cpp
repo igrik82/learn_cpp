@@ -79,6 +79,7 @@ int main() {
 
     case 'S':
     case 's':
+      // Check if the array is empty
       if (array.size() != 0) {
         cout << "The smallest number is: " << *minmax.first << endl;
       } else {
