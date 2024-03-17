@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <iomanip>
 #include <iostream>
 #include <vector>
@@ -18,9 +17,6 @@ int main() {
     cout << "S - Display the smallest number" << endl;
     cout << "L - Display the largest number" << endl;
     cout << "Q - Quit" << endl;
-
-    // Find minma in the array
-    auto minmax = minmax_element(array.begin(), array.end());
 
     cout << "\nEnter your choice: ";
     cin.clear();
@@ -89,7 +85,13 @@ int main() {
     case 'L':
     case 'l':
       if (array.size() != 0) {
-        cout << "The largest number is: " << *minmax.second << endl;
+        int largest = array.at(0);
+        for (auto num : array) {
+          if (num > largest) {
+            largest = num;
+          }
+        }
+        cout << "The largest number is: " << largest << endl;
       } else {
         cout << "[] - the list is empty" << endl;
       }
