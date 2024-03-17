@@ -81,7 +81,13 @@ int main() {
     case 's':
       // Check if the array is empty
       if (array.size() != 0) {
-        cout << "The smallest number is: " << *minmax.first << endl;
+        int smallest = array.at(0);
+        for (auto number : array) {
+          if (number < smallest) {
+            smallest = number;
+          }
+        }
+        cout << "The smallest number is: " << smallest << endl;
       } else {
         cout << "[] - the list is empty" << endl;
       }
