@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <sys/types.h>
 
 using std::cin;
 using std::cout;
@@ -15,7 +14,6 @@ const string alphabet =
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 int main() {
-
   cout << "Ceaser Cipher" << endl;
   cout << "====================" << endl;
   cout << "1. Encrypt a message" << endl;
@@ -42,4 +40,28 @@ int main() {
   }
 
   return 0;
+}
+
+u_int8_t get_key(string key_phrase) {
+
+  // The phrase can't be empty
+  if (key_phrase == "") {
+    cout << "The key phrase can't be empty" << endl;
+    return 0;
+  }
+
+  int temp{};
+  u_int8_t key{};
+
+  for (int i : key_phrase) {
+    temp += i;
+  }
+
+  // Return value not exided 62
+  // and not 0
+  key = temp % 62;
+  if (!key)
+    key = 1;
+
+  return key;
 }
