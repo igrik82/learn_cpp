@@ -13,7 +13,8 @@ string encrypt(string message, u_int8_t key);
 string decrypt(string message, u_int8_t key);
 void buffer_clear();
 
-const string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const string alphabet = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// const string alphabet = "abc";
 int action{0};
 
 int main() {
@@ -98,18 +99,19 @@ int get_key(string key_phrase) {
     return 0;
   }
 
-  int temp{};
-  int key{};
-
-  for (int i : key_phrase) {
-    temp += i;
+  int temp = 0;
+  for (char symbol : key_phrase) {
+    cout << alphabet.find(static_cast<char>(symbol)) << endl;
+    temp += alphabet.find(static_cast<char>(symbol));
   }
 
   // Return value not exided alphabet
   // and not 0
+  int key = 0;
   key = temp % (alphabet.length() - 1);
   if (!key)
     key = 1;
+  cout << key << endl;
 
   return key;
 }
@@ -121,15 +123,19 @@ void buffer_clear() {
 
 string encrypt(string message, u_int8_t key) {
   string encripted{};
-  for (char index : message) {
-    encripted += alphabet.at((alphabet.find(index) + key) % alphabet.length());
+  int index_symbol{0};
+  for (char symbol : message) {
+    index_symbol = (alphabet.find(symbol) + key) % (alphabet.length() - 1);
+    encripted += alphabet.at(index_symbol);
   }
   return encripted;
 }
 string decrypt(string message, u_int8_t key) {
   string decrypted{};
-  for (char index : message) {
-    decrypted += alphabet.at((alphabet.find(index) - key) % alphabet.length());
+  int index_symbol{0};
+  for (char symbol : message) {
+    index_symbol = (alphabet.find(symbol) - key) % (alphabet.length() - 1);
+    decrypted += alphabet.at(index_symbol);
   }
   return decrypted;
 }
