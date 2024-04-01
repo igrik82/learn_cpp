@@ -14,7 +14,7 @@ string decrypt(string message, u_int8_t key);
 void buffer_clear();
 
 const string alphabet = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// const string alphabet = "abc";
+
 int action{0};
 
 int main() {
@@ -35,6 +35,7 @@ int main() {
     switch (action) {
     case 1: {
       // Clear cin buffer
+
       buffer_clear();
       cout << "Enter your message: ";
       string message{};
@@ -101,7 +102,6 @@ int get_key(string key_phrase) {
 
   int temp = 0;
   for (char symbol : key_phrase) {
-    cout << alphabet.find(static_cast<char>(symbol)) << endl;
     temp += alphabet.find(static_cast<char>(symbol));
   }
 
@@ -111,7 +111,6 @@ int get_key(string key_phrase) {
   key = temp % (alphabet.length() - 1);
   if (!key)
     key = 1;
-  cout << key << endl;
 
   return key;
 }
