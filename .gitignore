@@ -1,5 +1,3 @@
-main
-.gitignore
 # Prerequisites
 *.d
 
@@ -32,3 +30,6 @@ main
 *.exe
 *.out
 *.app
+
+# Folders with executables
+*/bin/*
