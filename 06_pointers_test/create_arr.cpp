@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ostream>
+#include <vector>
 using namespace std;
 
 int *create_array(int init_val, size_t size);
@@ -17,6 +18,13 @@ int main() {
 
   // Print this array
   print_array(ptr, 10);
+
+  vector<int> v(10);
+
+  for (auto &i : v) {
+    cout << i << endl;
+  }
+
   return 0;
 }
 
