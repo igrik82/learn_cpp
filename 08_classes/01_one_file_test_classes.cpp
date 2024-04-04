@@ -3,10 +3,10 @@ using namespace std;
 
 class Bank_Account {
 
-public:
   string name;
   double account{0};
 
+public:
   void add_name(string name) { this->name = name; }
 
   string get_name() { return this->name; }
