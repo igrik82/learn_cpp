@@ -35,3 +35,4 @@ core
 
 # Folders with executables
 */bin/*
+*/build/*
